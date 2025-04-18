@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockVerify Admin - Moving Blocks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
+        body { background: #111; color: white; }
+
+        .moving-blocks {
+            position: fixed;
+            width: 100%; height: 100%;
+            top: 0; left: 0; overflow: hidden; z-index: -1;
+        }
+
+        .moving-blocks span {
+            position: absolute;
+            display: block;
+            width: 30px; height: 30px;
+            background: rgba(241, 196, 15, 0.2);
+            animation: floatBlock 20s linear infinite;
+            bottom: -150px;
+        }
+
+        @keyframes floatBlock {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        header { padding: 20px 50px; background: rgba(0,0,0,0.7);
+                 display: flex; justify-content: space-between; align-items: center; z-index: 10; position: relative; }
+        header .logo { font-size: 1.8em; font-weight: bold; display: flex; align-items: center; }
+        header .logo i { margin-right: 10px; color: #f1c40f; }
+        header nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 1em; transition: 0.3s; }
+        header nav a:hover { color: #f1c40f; }
+
+        .admin-content { position: relative; padding: 100px 50px; text-align: center; z-index: 10; }
+        .admin-content h1 { font-size: 2.5em; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
+        .card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; width: 220px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.4); color: #fff; transition: transform 0.3s; cursor: pointer; }
+        .card:hover { transform: translateY(-5px) scale(1.03); }
+        .card i { font-size: 2em; color: #f1c40f; margin-bottom: 15px; }
+        .counter { font-size: 2.5em; margin: 10px 0; }
+
+        footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.7); margin-top: 50px; z-index: 10; position: relative; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="moving-blocks"></div>
+
+<header>
+    <div class="logo"><i class="fas fa-cubes"></i> BlockVerify Admin</div>
+    <nav>
+        <a href="index.html">Back to Main</a>
+    </nav>
+</header>
+
+<section class="admin-content">
+    <h1><i class="fas fa-tools"></i> Admin Dashboard</h1>
+    <div class="cards">
+        <div class="card"><i class="fas fa-user-shield"></i><div id="counter1" class="counter">0</div><p>Total Verified Users</p></div>
+        <div class="card"><i class="fas fa-certificate"></i><div id="counter2" class="counter">0</div><p>Certificates Issued</p></div>
+        <div class="card"><i class="fas fa-history"></i><div id="counter3" class="counter">0</div><p>Verification Logs</p></div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 BlockVerify — Admin Panel
+</footer>
+
+<script>
+for (let i = 0; i < 30; i++) {
+    let block = document.createElement('span');
+    block.style.left = Math.random() * 100 + 'vw';
+    block.style.animationDuration = (10 + Math.random() * 10) + 's';
+    block.style.width = block.style.height = Math.random() * 40 + 10 + 'px';
+    document.querySelector('.moving-blocks').appendChild(block);
+}
+
+function animateValue(id, start, end, duration) {
+    let obj = document.getElementById(id);
+    let range = end - start;
+    let startTime = null;
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        let progress = Math.min((timestamp - startTime) / duration, 1);
+        obj.innerText = Math.floor(progress * range + start);
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+window.onload = function() {
+    animateValue("counter1", 0, 128, 2000);
+    animateValue("counter2", 0, 45, 2000);
+    animateValue("counter3", 0, 392, 2000);
+}
+</script>
+
+</body>
+</html>

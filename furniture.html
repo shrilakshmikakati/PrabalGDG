@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Furniture</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #06164f;
+    }
+
+    .furniture-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem;
+      padding: 0 2rem;
+      box-sizing: 25% 25%;
+    }
+
+    .furniture-item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-sizing: 25% 25%;
+    }
+
+    .furniture-item:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    .furniture-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .furniture-item h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #06164f;
+    }
+
+    .furniture-item button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #06164f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .furnituret-item button:hover {
+      background-color: #0a237a;
+    }
+
+ 
+  </style>
+</head>
+<body>
+  <h1>FURNITURE</h1>
+  <div class="furniture">
+    <div class="furniture-item">
+      <img src="E:\ABTAHI\atufa proj\f1.jpeg" alt="Sofa">
+      <h3>Sofa</h3>
+      <button>BUY NOW</button>
+      
+    </div>
+
+    <div class="furniture-item">
+      <img src="f2.jpeg" alt="Chair">
+      
+      <h3>Chair</h3>
+      <button>BUY NOW</button>
+      
+    </div>
+
+    <div class="furniture-item">
+      <img src="f3.jpeg" alt="Dining Table">
+     
+      <h3>Dining Table</h3>
+      
+      <button>BUY NOW</button>
+      
+    </div>
+
+    <div class="furniture-item">
+      <img src="f4.jpeg" alt="Bed">
+    
+      <h3>Bed</h3>
+      
+      <button>BUY NOW</button>
+      
+    </div>
+
+    <div class="furniture-item">
+      <img src="f5" alt="Bookshelf">
+      <h3>Bookshelf</h3>
+      <button>BUY NOW</button>
+      <P>25000.00 Rs</P>
+     
+    </div>
+  </div>
+</body>
+</html>
